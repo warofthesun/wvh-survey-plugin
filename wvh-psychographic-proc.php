@@ -43,3 +43,9 @@ function wvh_shortcodes_init()
     add_shortcode('wvh-psychographic-survey', 'showpsychographic_shortcode');
 }
 add_action('init', 'wvh_shortcodes_init');
+
+add_action( 'wp_enqueue_scripts', 'enqueue_jquery' );
+
+function enqueue_jquery() {
+   wp_enqueue_script('jquery-ui-dialog', array(jquery), '1.0.0', true);
+}

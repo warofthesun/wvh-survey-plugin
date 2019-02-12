@@ -122,18 +122,20 @@
             <div class="clearboth">&nbsp;</div>
         </div>
     </form>
+    <div id="dialog" title="Dialog Title">
+      <div id="message">You are a</div>
+      <h2 id="result"></h2>
+      <a id="button" href="#">Learn More</a>
+    </div>
 </div>
 <div class="clearboth">&nbsp;</div>
-<div id="dialog" title="Dialog Title">
-<div id="message"></div>
-<a id="button" href="#">Learn More</a>
-</div>
+
 <script>
     jQuery(document).ready(function($) {
         jQuery("#wvhSurvey").hide();
 
 
-    $("#dialog").dialog({ autoOpen: false, modal: true, height: 590, width: 1005 });
+    $("#dialog").dialog({ autoOpen: false, modal: true, dialogClass: 'survey'});
 
             $("#OpenDialog").click(function () {
                 $("#dialog").dialog('open');
@@ -202,9 +204,9 @@
                 data: data,
                 success: function(response)
                 {
-                    jQuery("#dialog").dialog('open');
-                    jQuery("#dialog").dialog('option', 'title', response);
-                    jQuery("#message").html("You are a " + response);
+                    jQuery("#dialog").dialog('open').dialog('option', 'title', response);
+                    jQuery("#wvhPsychographicPlugin").html(" ");
+                    jQuery("#result").html(response).addClass(response.toLowerCase().replace(/ /g,"-"));
                     jQuery("#button").attr("href", "../" + response.toLowerCase().replace(/ /g,"-") );
 
                 }
