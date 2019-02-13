@@ -369,25 +369,42 @@
         </div>
     </form>
     <div id="dialog" title="Dialog Title">
-      <div id="message">You are a</div>
-      <h2 id="result"></h2>
-      <a id="button" href="#">Learn More</a>
+      <h4 id="message">Drumroll please...<br />your healthcare profile is…</h4>
+      <h1 id="result"></h1>
+      <div class="result">
+        <div class="result-summary open-to-options balance-seeker">
+          You are proactive and wellness oriented when it comes to your health. You weigh the options available and define your own success.
+        </div>
+        <div class="result-summary live-for-today balance-seeker">
+          You are mainly reactive when it comes to your health because you are living in the moment! Plus health issues can be overwhelming.
+        </div>
+        <div class="result-summary for-the-family willful-endurer">
+          You are mainly reactive when it comes to your health because you are far more invested in the health of your family and those around you! Plus who has time to worry about their health today?
+        </div>
+        <div class="result-summary healthy-for-life balance-seeker">
+          You are proactive when it comes to your health because you know how important your health and well being are. Plus it sure does feel great to reach a goal you set for yourself.
+        </div>
+        <div class="result-summary dr-knows-best balance-seeker">
+          You like direction and guidance when it comes to your health - preferably from a physician.
+        </div>
+      <a id="button" href="#">Learn more about the replace profile</a>
+      <div class="result-email">
+        We have also sent you an email that includes an example piece of communication for other replace consumers like you!
+      </div>
     </div>
+  </div>
 </div>
 <div class="clearboth">&nbsp;</div>
 
 <script>
     jQuery(document).ready(function($) {
-        jQuery("#wvhSurvey").hide();
+      $("#wvhSurvey").hide();
+      $("#dialog").dialog({ autoOpen: false, modal: true, dialogClass: 'survey'});
 
-
-    $("#dialog").dialog({ autoOpen: false, modal: true, dialogClass: 'survey'});
-
-            $("#OpenDialog").click(function () {
-                $("#dialog").dialog('open');
-            });
-
-    });
+          $("#OpenDialog").click(function () {
+              $("#dialog").dialog('open');
+          });
+      });
 
     function pageOneContinue(e)
     {
@@ -453,12 +470,14 @@
                     jQuery("#dialog").dialog('open').dialog('option', 'title', response);
                     jQuery("#wvhPsychographicPlugin").html(" ");
                     jQuery("#result").html(response).addClass(response.toLowerCase().replace(/ /g,"-"));
-                    jQuery("#button").attr("href", "../" + response.toLowerCase().replace(/ /g,"-") );
+                    jQuery(".survey .ui-dialog-titlebar").addClass(response.toLowerCase().replace(/ /g,"-"));
+                    jQuery(".result").addClass(response.toLowerCase().replace(/ /g,"-"));
+                    jQuery("#button").attr("href", "../" + response.toLowerCase().replace(/ /g,"-") ).text(jQuery("#button").text().replace("replace", response));
+                    jQuery(".result-email").text(jQuery(".result-email").text().replace("replace", response));
+                    jQuery("body").prepend("<div class='overlay'></div>").addClass("overlay");
 
                 }
             });
-
-
         }
     }
 </script>

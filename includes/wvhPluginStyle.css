@@ -3,16 +3,25 @@
   max-width: 600px;
   background-color: #fff;
   border-radius: 6px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); }
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  z-index: 99; }
   .ui-dialog.survey .ui-dialog-titlebar {
-    background-color: #62ade3;
     padding: .5em;
     display: flex;
-    color: #1a6092;
-    text-shadow: 1px 1px 1px rgba(228, 241, 250, 0.5), -1px -1px 1px rgba(98, 173, 227, 0.5);
+    color: rgba(0, 0, 0, 0.34);
     border-radius: 6px 6px 0 0;
     text-transform: uppercase;
     font-weight: bold; }
+    .ui-dialog.survey .ui-dialog-titlebar.willful-endurer, .ui-dialog.survey .ui-dialog-titlebar.for-the-family {
+      background-color: #f89520; }
+    .ui-dialog.survey .ui-dialog-titlebar.balance-seeker, .ui-dialog.survey .ui-dialog-titlebar.open-to-options {
+      background-color: #23a9e1; }
+    .ui-dialog.survey .ui-dialog-titlebar.healthy-for-life, .ui-dialog.survey .ui-dialog-titlebar.priority-juggler {
+      background-color: #8cc640; }
+    .ui-dialog.survey .ui-dialog-titlebar.dr-knows-best {
+      background-color: #1b76a0; }
+    .ui-dialog.survey .ui-dialog-titlebar.live-for-today, .ui-dialog.survey .ui-dialog-titlebar.self-achiever {
+      background-color: #f8d82e; }
     .ui-dialog.survey .ui-dialog-titlebar .ui-dialog-titlebar-close {
       margin-left: auto;
       border: 0;
@@ -20,17 +29,43 @@
       color: #fff;
       text-shadow: 1px 1px 1px rgba(26, 96, 146, 0.5); }
   .ui-dialog.survey .ui-dialog-content {
-    padding: 1em;
+    padding: 2em;
     text-align: center; }
     .ui-dialog.survey .ui-dialog-content #button {
       background-color: #aed578;
-      color: #fff;
-      padding: .5em 1em;
-      transition: all .5s;
-      border: 1px solid #7db037; }
+      color: #464646;
+      padding: .7em 1.3em;
+      transition: all .5s; }
       .ui-dialog.survey .ui-dialog-content #button:hover {
         background-color: #97c951;
         color: #fff; }
+  .ui-dialog.survey #result {
+    margin-top: 1em;
+    font-weight: 700;
+    padding-bottom: .5em; }
+    .ui-dialog.survey #result.willful-endurer, .ui-dialog.survey #result.for-the-family {
+      border-bottom: 1px solid #f89520; }
+    .ui-dialog.survey #result.balance-seeker, .ui-dialog.survey #result.open-to-options {
+      border-bottom: 1px solid #23a9e1; }
+    .ui-dialog.survey #result.healthy-for-life, .ui-dialog.survey #result.priority-juggler {
+      border-bottom: 1px solid #8cc640; }
+    .ui-dialog.survey #result.dr-knows-best {
+      border-bottom: 1px solid #1b76a0; }
+    .ui-dialog.survey #result.live-for-today, .ui-dialog.survey #result.self-achiever {
+      border-bottom: 1px solid #f8d82e; }
+  .ui-dialog.survey .result-email {
+    line-height: 1.5;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-style: italic; }
+  .ui-dialog.survey .result-summary {
+    display: none;
+    line-height: 1.5;
+    margin: 2em 1em; }
+  .ui-dialog.survey .result.open-to-options .open-to-options, .ui-dialog.survey .result.open-to-options .balance-seeker, .ui-dialog.survey .result.balance-seeker .open-to-options, .ui-dialog.survey .result.balance-seeker .balance-seeker {
+    display: block; }
+  .ui-dialog.survey .result.for-the-family .for-the-family, .ui-dialog.survey .result.for-the-family .willful-endurer, .ui-dialog.survey .result.willful-endurer .for-the-family, .ui-dialog.survey .result.willful-endurer .willful-endurer {
+    display: block; }
 
 .wvhFieldError {
   border: 2px solid red !important; }

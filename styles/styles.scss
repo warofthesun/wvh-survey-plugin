@@ -4,23 +4,49 @@ $blue-dk: darken($blue, 30%);
 $green: #aed578;
 $orange: #e09245;
 
+$chart-orange: #f89520;
+$chart-blue-lt: #23a9e1;
+$chart-green: #8cc640;
+$chart-blue-dk: #1b76a0;
+$chart-yellow: #f8d82e;
+
 .ui-dialog.survey {
     width: 100% !important;
     max-width: 600px;
     background-color: #fff;
     border-radius: 6px;
     box-shadow: 0 0 6px rgba(0,0,0,0.5);
+    z-index: 99;
 
 
   .ui-dialog-titlebar {
-    background-color: $blue;
     padding: .5em;
     display: flex;
-    color: darken($blue, 30%);
-    text-shadow: 1px 1px 1px rgba($blue-lt, 0.5), -1px -1px 1px rgba($blue, 0.5);
+    color: rgba(0, 0, 0, 0.34);
+    //text-shadow: 1px 1px 1px rgba($blue-lt, 0.5), -1px -1px 1px rgba($blue, 0.5);
     border-radius: 6px 6px 0 0;
     text-transform: uppercase;
     font-weight: bold;
+
+    &.willful-endurer, &.for-the-family {
+      background-color: $chart-orange;
+    }
+
+    &.balance-seeker, &.open-to-options {
+      background-color: $chart-blue-lt;
+    }
+
+    &.healthy-for-life, &.priority-juggler {
+      background-color: $chart-green;
+    }
+
+    &.dr-knows-best {
+      background-color: $chart-blue-dk;
+    }
+
+    &.live-for-today, &.self-achiever {
+      background-color: $chart-yellow;
+    }
 
     .ui-dialog-titlebar-close {
       margin-left: auto;
@@ -32,19 +58,71 @@ $orange: #e09245;
   }
 
   .ui-dialog-content {
-    padding: 1em;
+    padding: 2em;
     text-align: center;
 
     #button {
       background-color: $green;
-      color: #fff;
-      padding: .5em 1em;
+      color: #464646;
+      padding: .7em 1.3em;
       transition: all .5s;
-      border: 1px solid darken($green, 20%);
 
       &:hover {
         background-color: darken($green, 10%);
         color: #fff;
+      }
+    }
+  }
+
+  #result {
+    margin-top: 1em;
+    font-weight: 700;
+    padding-bottom: .5em;
+
+    &.willful-endurer, &.for-the-family {
+      border-bottom: 1px solid $chart-orange;
+    }
+
+    &.balance-seeker, &.open-to-options {
+      border-bottom: 1px solid $chart-blue-lt;
+    }
+
+    &.healthy-for-life, &.priority-juggler {
+      border-bottom: 1px solid $chart-green;
+    }
+
+    &.dr-knows-best {
+      border-bottom: 1px solid $chart-blue-dk;
+    }
+
+    &.live-for-today, &.self-achiever {
+      border-bottom: 1px solid $chart-yellow;
+    }
+  }
+
+  .result {
+    &-email {
+      line-height: 1.5;
+      margin-top: 2em;
+      margin-bottom: 1em;
+      font-style: italic;
+    }
+
+    &-summary {
+      display: none;
+      line-height: 1.5;
+      margin:2em 1em;
+    }
+
+    &.open-to-options, &.balance-seeker {
+      .open-to-options, .balance-seeker {
+        display: block;
+      }
+    }
+
+    &.for-the-family, &.willful-endurer {
+      .for-the-family, .willful-endurer {
+        display: block;
       }
     }
   }
